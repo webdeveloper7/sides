@@ -1,0 +1,50 @@
+<script>
+
+	// declare variables
+	var area = 0;
+	var count = 0;
+	
+	// get user input
+	getSides();
+	
+	// validate
+	validateSides(count);
+
+	// display results
+	document.write("The area is " + area + ".");
+	
+	// *** functions ***
+	
+	// get sides function
+	function getSides() 
+	{
+		count = parseInt(prompt("Enter number of Sides (between 1 and 12):", ""));
+	}
+	
+	// validate function
+	function validateSides(count)
+	{
+		if (count < 1 || count > 12) 
+		{
+			alert("Must be an integer between 1 and 12");
+			getSides();
+		} 
+		else 
+		{
+			shapeCalc(count);
+		}
+	}
+
+	// calculate function
+	function shapeCalc(count) 
+	{
+		for (var x = 0; x < count; x++)
+		{
+			var side = parseInt(prompt("Enter the Side's Length:", ""));
+			side *= side;
+			area += side;
+		}
+		return area;
+	}
+
+</script>
