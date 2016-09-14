@@ -1,7 +1,6 @@
 <script>
 
 	// declare variables
-	var area = 0;
 	var count = 0;
 	
 	// get user input
@@ -11,7 +10,7 @@
 	validateSides(count);
 
 	// display results
-	document.write("The area is " + area + ".");
+	document.write("The area is " + shapeCalc(count) + ".");
 	
 	// *** functions ***
 	
@@ -29,20 +28,17 @@
 			alert("Must be an integer between 1 and 12");
 			getSides();
 		} 
-		else 
-		{
-			shapeCalc(count);
-		}
 	}
 
 	// calculate function
 	function shapeCalc(count) 
 	{
+		var area = 1; //start value at 1 to avoid all answers ending up as zero
+		
 		for (var x = 0; x < count; x++)
 		{
 			var side = parseInt(prompt("Enter the Side's Length:", ""));
-			side *= side;
-			area += side;
+			area = area * side; //Adding sides get you the perimeter, not an area.  Use only multiplication :)
 		}
 		return area;
 	}
